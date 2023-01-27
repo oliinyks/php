@@ -10,7 +10,6 @@ if(!empty($_POST)){
     if($errors = validate($fields)){
         debug($errors);
     }else{
-        echo 'OK';
         // mail
     }
 }
@@ -34,8 +33,18 @@ if(!empty($_POST)){
 
 <body>
 	<main>
+		<?php
+		if($message_sent):
+		?>
+
+			<h2 class="form-title">Thanks, we'll be in touch</h2>
+
+			<?php
+			else:
+				?>
+
 		<section class="section">
-			<p class="form-title">Send e-mail</p>
+			<h1 class="form-title">Send e-mail</h1>
 			<form class="form" method="post">
 				<input class="form-input" type="text" name="name" placeholder="Full name">
 				<input class="form-input" type="text" name="mail" placeholder="Your e-mail">
@@ -44,6 +53,10 @@ if(!empty($_POST)){
 				<button class="button" type="submit" name="submit">send mail</button>
 			</form>
 		</section>
+
+		<?php
+		endif;
+		?>
 	</main>
 </body>
 
