@@ -3,6 +3,8 @@
 require_once __DIR__ . '/incs/data.php';
 require_once __DIR__ . '/incs/functions.php';
 
+$message_sent = false;
+
 if(!empty($_POST)){
    //  debug($_POST);
     $fields = load($fields);
@@ -10,6 +12,7 @@ if(!empty($_POST)){
     if($errors = validate($fields)){
         debug($errors);
     }else{
+		$message_sent = true;
         // mail
     }
 }
@@ -37,7 +40,7 @@ if(!empty($_POST)){
 		if($message_sent):
 		?>
 
-			<h2 class="form-title">Thanks, we'll be in touch</h2>
+			<h2 class="title">Thanks, we'll be in touch</h2>
 
 			<?php
 			else:
